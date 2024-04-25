@@ -5,9 +5,216 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap"
+    />
+    <script type="module" src="app.js"></script>
   </head>
-  <script src="app.js"></script>
   <body>
-    <h2>Стать партнёром проекта</h2>
+    <div class="wrapper">
+      <div class="banner">
+        <h1 class="banner-title">modal project</h1>
+        <button id="modal-btn" class="btn btn-modal">open modal</button>
+      </div>
+    </div>
+
+    <div class="modal-overlay">
+      <div class="modal-container">
+        <form id="partnerForm">
+          <h2 class="form-title">Стать партнёром проекта</h2>
+          <div class="form-wrapper--shortInput__Block">
+            <div class="form--wrapper__flex">
+              <div class="form-group">
+                <label class="form-group--label__required" for="orgName"
+                  >Название организации</label
+                >
+                <input
+                  type="text"
+                  id="orgName"
+                  name="orgName"
+                  class="form--input__short"
+                />
+                <div class="error-message"></div>
+              </div>
+              <div class="form-group">
+                <label class="form-group--label__required" for="phone"
+                  >Телефон</label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="form--input__short"
+                />
+                <div class="error-message"></div>
+              </div>
+              <div class="form-group">
+                <label class="form-group--label__required" for="email"
+                  >E-mail</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form--input__short"
+                />
+                <div class="error-message"></div>
+              </div>
+            </div>
+            <div class="form-group--upload">
+              <button class="form-group--upload-btn">
+                <img
+                  src="./icons/close.svg"
+                  class="form-group--icon__close"
+                  width="16"
+                  height="16"
+                />
+              </button>
+              <p class="form-group--upload-text">Логотип (jpeg, png)</p>
+              <label for="fileInput" class="form-group--label">
+                <div class="form-fileInput">
+                  <img
+                    src="./icons/vector.svg"
+                    class="form-group--icon__upload"
+                    width="29"
+                    height="29"
+                  />
+                  <p class="form-group--input-text">
+                    Выберите <br />
+                    файл
+                  </p>
+                </div>
+              </label>
+              <input type="file" id="fileInput" name="fileInput" />
+              <div class="error-message"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-group--label__required" for="direction"
+              >Направление</label
+            >
+            <select id="direction" name="direction">
+              <option value="">Выберите направление</option>
+              <option value="экология">Экология</option>
+              <option value="IT">IT</option>
+            </select>
+            <div class="error-message"></div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-group--nonrequired-input"
+              id="site"
+              name="site"
+            />
+            <img
+              src="./icons/global.svg"
+              class="form-group--icon form-group--icon__global"
+              width="18"
+              height="18"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-group--nonrequired-input"
+              id="vk"
+              name="vk"
+            />
+            <img
+              src="./icons/vk.svg"
+              class="form-group--icon form-group--icon__vk"
+              width="18"
+              height="18"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-group--nonrequired-input"
+              id="ok"
+              name="ok"
+            />
+            <img
+              src="./icons/ok.svg"
+              class="form-group--icon form-group--icon__ok"
+              width="18"
+              height="18"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-group--nonrequired-input"
+              id="facebook"
+              name="facebook"
+            />
+            <img
+              src="./icons/facebook.svg"
+              class="form-group--icon form-group--icon__facebook"
+              width="18"
+              height="18"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-group--nonrequired-input"
+              id="instagram"
+              name="instagram"
+            />
+            <img
+              src="./icons/instagram.svg"
+              class="form-group--icon form-group--icon__instagram"
+              width="18"
+              height="18"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-group--nonrequired-input"
+              id="youtube"
+              name="youtube"
+            />
+            <img
+              src="./icons/youtube.svg"
+              class="form-group--icon form-group--icon__youtube"
+              width="18"
+              height="18"
+            />
+          </div>
+          <div class="form-group">
+            <label for="managerName">Руководитель</label>
+            <input type="text" id="managerName" name="managerName" />
+          </div>
+          <div class="partnerForm-buttons">
+            <button
+              type="submit"
+              id="submitBtn"
+              class="partnerForm-submitBtn partnerForm-btn"
+            >
+              Стать партнером проекта
+            </button>
+            <button
+              type="button"
+              id="cancelBtn"
+              class="partnerForm-cancelBtn partnerForm-btn"
+            >
+              Отменить
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
