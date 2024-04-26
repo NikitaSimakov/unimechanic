@@ -19,10 +19,11 @@ body {
 
 .banner,
 .modal-container {
-  width: 100%;
-  max-width: 754px;
+  max-width: 727px;
+  margin-left: 20px;
+  margin-right: 20px;
   background-color: rgb(229, 245, 192);
-  margin: auto;
+
   background-color: #ffffff;
   border: 1px solid darkgreen;
   border-radius: 12px;
@@ -30,10 +31,41 @@ body {
   text-align: center;
 }
 
-.banner-title,
-.form-title {
+.banner {
+  margin: auto;
+}
+
+.modal-container {
+  position: relative;
+  width: 100%;
+  margin: 20px;
+  @media screen and (max-width: 767px) {
+    max-width: 727px;
+    margin-left: 20px;
+  }
+}
+
+.banner__title,
+.form__title {
   text-transform: capitalize;
   margin-bottom: 25px;
+}
+
+.form__wrapper--short-input-block {
+  display: flex;
+  column-gap: 22px;
+  justify-content: center;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.form__wrapper--flex {
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 362px;
+  }
 }
 
 .btn {
@@ -60,19 +92,14 @@ body {
 .modal-overlay {
   display: none;
   width: 100%;
-  height: 100%;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  background: rgba(73, 166, 233, 0.6);
 }
 
 .modal-overlay.active {
   display: flex;
-}
-
-.modal-container {
-  position: relative;
+  justify-content: center;
 }
 
 .btn-close {
@@ -122,17 +149,39 @@ body {
   line-height: 24px;
   text-align: left;
   padding-bottom: 32px;
+
+  margin: 0 auto;
 }
 
 .form-group label {
   position: absolute;
   font-size: 12px;
   margin-left: 16px;
-  top: 8px;
+  top: 3px;
   color: #6b6b6b;
+
+  @media screen and (min-width: 768px) {
+    top: 8px;
+  }
+}
+.form-group__label--required {
+  position: relative;
+  left: 16px;
 }
 
-.form--input__short {
+.form-group__label--required::before {
+  content: "*";
+  font-size: 36px;
+  color: red;
+  position: absolute;
+  top: 20px;
+  transform: translateY(-50%);
+  left: -15px;
+}
+.form__input--short {
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
   width: 362px;
   padding-top: 20px;
 }
@@ -145,6 +194,9 @@ select {
   width: 100%;
   height: 56px;
   border: 1px solid #d6dade;
+  @media screen and (max-width: 767px) {
+    height: 45px;
+  }
 }
 
 select {
@@ -154,15 +206,6 @@ select {
 
 #managerName {
   padding-top: 20px;
-}
-
-.form--wrapper__flex {
-  width: 362px;
-}
-
-.form-wrapper--shortInput__Block {
-  display: flex;
-  column-gap: 26px;
 }
 
 input[type="file"] {
@@ -176,32 +219,25 @@ input[type="file"] {
   height: 175px;
 }
 
-.form-group--label__required {
-  position: relative;
-  left: 16px;
-}
-
-.form-group--label__required::before {
-  content: "*";
-  font-size: 36px;
-  color: red;
-  position: absolute;
-  top: 20px;
-  transform: translateY(-50%);
-  left: -15px;
-}
-
-.form-group--icon {
+.form-group__icon {
   position: absolute;
   right: 14px;
-  top: 18px;
+
+  top: 13px;
+  @media screen and (min-width: 768px) {
+    top: 18px;
+  }
 }
 
 .form-group--upload {
   position: relative;
+  @media screen and (max-width: 767px) {
+    margin: 0 auto;
+    padding-bottom: 30px;
+  }
 }
 
-.form-group--upload-btn {
+.form-group__upload-btn {
   border-radius: 50%;
   border: none;
   background-color: #ffffff;
@@ -212,29 +248,25 @@ input[type="file"] {
   height: 37px;
 }
 
-.form-group--icon__close {
+.form-group__icon--close {
   display: block;
   margin: 0 auto;
 }
 
-.form-group--upload-text {
+.form-group__upload-text {
   color: #6b6b6b;
   margin-bottom: 12px;
 }
 
-.form-group--label {
+.form-group__label {
   cursor: pointer;
 }
 
-.form-group--icon__upload {
+.form-group__icon--upload {
   margin-top: 39px;
 }
 
-.form-group--input-text {
-  margin-top: 7px;
-}
-
-.form-group--upload-text::before {
+.form-group__upload-text::before {
   content: "*";
   font-size: 36px;
   color: red;
@@ -243,13 +275,14 @@ input[type="file"] {
   left: 7px;
 }
 
-.form-group--input-text {
+.form-group__input-text {
+  margin-top: 7px;
   color: #ffffff;
   font-size: 18px;
   text-decoration: underline;
 }
 
-.partnerForm-buttons {
+.partner-form__buttons {
   display: flex;
   padding-top: 18px;
   flex-wrap: wrap;
@@ -258,7 +291,7 @@ input[type="file"] {
   padding-top: 18px;
 }
 
-.partnerForm-btn {
+.partner-form__btn {
   height: 48px;
   border: none;
   background-color: transparent;
@@ -266,7 +299,7 @@ input[type="file"] {
   cursor: pointer;
 }
 
-.partnerForm-submitBtn {
+.partner-form__btn--submit {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 18px;
@@ -275,9 +308,14 @@ input[type="file"] {
   border-radius: 3px;
 }
 
-.partnerForm-cancelBtn {
+.partner-form__btn--cancel {
   color: #0848c0;
   font-family: "PT Sans", sans-serif;
   font-weight: 400;
   line-height: 24px;
+}
+
+.partner-form__btn--cancel:hover {
+  border-radius: 3px;
+  border: 1px solid black;
 }
