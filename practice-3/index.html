@@ -5,7 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="module" src="app.js"></script>
   </head>
-  <script src="app.js"></script>
-  <body></body>
+  <body>
+    <header>Unimechanic test task</header>
+    <div class="wrapper">
+      <input type="text" id="search" placeholder="search..." />
+      <button id="reset-sorting">Сбросить</button>
+      <table id="posts-table">
+        <thead>
+          <tr>
+            <th id="id">ID</th>
+            <th id="title">Title</th>
+            <th id="body">Body</th>
+            <th id="userId">User ID</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </body>
 </html>
