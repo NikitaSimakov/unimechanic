@@ -18,7 +18,7 @@ function validateRequiredFields() {
     setErrorFor(phone, "Пожалуйста, введите номер телефона");
   } else if (!isPhoneValid(phone.value.trim())) {
     isValid = false;
-    setErrorFor(phone, "Пожалуйста, введите корректный номер телефона в формате +7(999)999-99-99");
+    setErrorFor(phone, "Пожалуйста, введите корректный номер телефона в формате +7 999 999-99-99");
   } else {
     setSuccessFor(phone);
   }

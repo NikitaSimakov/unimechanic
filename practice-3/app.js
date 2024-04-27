@@ -10,7 +10,7 @@ let sortDirection = {};
 
 const fetchPosts = async () => {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=10');
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
 
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -49,7 +49,9 @@ const sortPosts = (field, th) => {
   th.classList.add('sorted');
   th.innerHTML = `${th.textContent} ${direction === 'asc' ? ' ▲' : ' ▼'}`;
 
-  filteredPosts.sort((a, b) => {
+  let sortedPosts = filteredPosts.length ? filteredPosts : postsData; // Используем filteredPosts, если он есть, иначе postsData
+
+  sortedPosts.sort((a, b) => {
     const valueA = typeof a[field] === 'string' ? a[field].toUpperCase() : a[field];
     const valueB = typeof b[field] === 'string' ? b[field].toUpperCase() : b[field];
 
@@ -60,8 +62,9 @@ const sortPosts = (field, th) => {
     }
   });
 
-  renderPosts(filteredPosts);
+  renderPosts(sortedPosts);
 };
+
 
 const filterPosts = (searchTerm) => {
   filteredPosts = postsData.filter(post => {
@@ -93,7 +96,7 @@ resetSortingBtn.addEventListener('click', () => {
   const sortedTh = document.querySelector('th.sorted');
   if (sortedTh) {
     sortedTh.classList.remove('sorted', 'asc', 'desc');
-    sortedTh.innerHTML = sortedTh.textContent;
+    sortedTh.innerHTML = sortedTh.textContent.replace(' ▲', '').replace(' ▼', '');
   }
   searchInput.value = '';
   rows.forEach(row => {

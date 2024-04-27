@@ -214,9 +214,12 @@ input[type="file"] {
 
 .form-fileInput {
   border-radius: 50%;
-  background-color: violet;
+  background-color: #848484;
   width: 175px;
   height: 175px;
+  background-image: url("./icons//preview.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .form-group__icon {
@@ -237,7 +240,7 @@ input[type="file"] {
   }
 }
 
-.form-group__upload-btn {
+.form-group__clear-btn {
   border-radius: 50%;
   border: none;
   background-color: #ffffff;
@@ -246,6 +249,7 @@ input[type="file"] {
   right: -3px;
   width: 37px;
   height: 37px;
+  cursor: pointer;
 }
 
 .form-group__icon--close {
