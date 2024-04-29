@@ -11,7 +11,7 @@ function validateRequiredFields() {
     setErrorFor(orgName, "Название организации должно содержать не менее 3 символов");
   } else {
     setSuccessFor(orgName);
-  }
+  };
 
   if (phone.value.trim() === "") {
     isValid = false;
@@ -21,7 +21,7 @@ function validateRequiredFields() {
     setErrorFor(phone, "Пожалуйста, введите корректный номер телефона в формате +7 999 999-99-99");
   } else {
     setSuccessFor(phone);
-  }
+  };
 
   if (email.value.trim() === "") {
     isValid = false;
@@ -31,14 +31,14 @@ function validateRequiredFields() {
     setErrorFor(email, "Пожалуйста, введите корректный адрес электронной почты");
   } else {
     setSuccessFor(email);
-  }
+  };
 
   if (direction.value === "") {
     isValid = false;
     setErrorFor(direction, "Пожалуйста, выберите направление");
   } else {
     setSuccessFor(direction);
-  }
+  };
 
   return isValid;
 }

@@ -49,8 +49,7 @@ const sortPosts = (field, th) => {
   th.classList.add('sorted');
   th.innerHTML = `${th.textContent} ${direction === 'asc' ? ' ▲' : ' ▼'}`;
 
-  let sortedPosts = filteredPosts.length ? filteredPosts : postsData; // Используем filteredPosts, если он есть, иначе postsData
-
+  let sortedPosts = filteredPosts.length ? filteredPosts : postsData;
   sortedPosts.sort((a, b) => {
     const valueA = typeof a[field] === 'string' ? a[field].toUpperCase() : a[field];
     const valueB = typeof b[field] === 'string' ? b[field].toUpperCase() : b[field];
@@ -64,7 +63,6 @@ const sortPosts = (field, th) => {
 
   renderPosts(sortedPosts);
 };
-
 
 const filterPosts = (searchTerm) => {
   filteredPosts = postsData.filter(post => {
